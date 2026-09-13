@@ -1,0 +1,251 @@
+{
+  "generated_at": "2026-09-12T06:29:20+00:00",
+  "symptoms": [
+    "cough",
+    "nasal congestion",
+    "vomiting",
+    "decreased appetite",
+    "fever",
+    "ache all over",
+    "skin rash"
+  ],
+  "unknown_symptoms": [],
+  "emergency": {
+    "score": 0,
+    "level": "LOW RISK",
+    "action": "No red-flag symptoms were reported. Consult a doctor if symptoms persist or worsen.",
+    "triggers": []
+  },
+  "confidence": {
+    "level": "VERY HIGH",
+    "probability": 0.9999804664030385,
+    "margin": 0.9999609340738385,
+    "ambiguous": false
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "strep throat",
+      "probability": 0.9999804664030385,
+      "dnn_probability": 0.9990268977340162,
+      "nb_probability": 0.9999804664030385,
+      "rule_score": 0.6671789884567261,
+      "train_count": 879
+    },
+    {
+      "rank": 2,
+      "name": "viral exanthem",
+      "probability": 1.9532329200063428e-05,
+      "dnn_probability": 0.0001183227322885406,
+      "nb_probability": 1.9532329200063428e-05,
+      "rule_score": 0.621109127998352,
+      "train_count": 434
+    },
+    {
+      "rank": 3,
+      "name": "herpangina",
+      "probability": 8.909688160015807e-10,
+      "dnn_probability": 0.0008283493582764457,
+      "nb_probability": 8.909688160015807e-10,
+      "rule_score": 0.5479910969734192,
+      "train_count": 320
+    },
+    {
+      "rank": 4,
+      "name": "diaper rash",
+      "probability": 2.1882442453158656e-10,
+      "dnn_probability": 3.253638483406938e-07,
+      "nb_probability": 2.1882442453158656e-10,
+      "rule_score": 0.4963374137878418,
+      "train_count": 631
+    },
+    {
+      "rank": 5,
+      "name": "acute bronchiolitis",
+      "probability": 1.5681876846816253e-10,
+      "dnn_probability": 5.687064806163083e-09,
+      "nb_probability": 1.5681876846816253e-10,
+      "rule_score": 0.47994813323020935,
+      "train_count": 870
+    }
+  ],
+  "contributions": [
+    {
+      "symptom": "ache all over",
+      "impact": 0.471816989596589,
+      "log_impact": 0.6383298942452845,
+      "influence": 0.9999042041806775
+    },
+    {
+      "symptom": "nasal congestion",
+      "impact": 2.8510311381402254e-05,
+      "log_impact": 2.8511274743743684e-05,
+      "influence": 4.466114424505551e-05
+    },
+    {
+      "symptom": "decreased appetite",
+      "impact": 1.5088445008193396e-05,
+      "log_impact": 1.5088853581732892e-05,
+      "influence": 2.3635753657565517e-05
+    },
+    {
+      "symptom": "skin rash",
+      "impact": 1.1244031860702108e-05,
+      "log_impact": 1.1244314718448868e-05,
+      "influence": 1.7613521881817694e-05
+    },
+    {
+      "symptom": "cough",
+      "impact": 4.006394236588662e-06,
+      "log_impact": 4.0064805233400366e-06,
+      "influence": 6.275903346172162e-06
+    },
+    {
+      "symptom": "vomiting",
+      "impact": 1.6328907668228254e-06,
+      "log_impact": 1.6329239968956699e-06,
+      "influence": 2.5578742031719555e-06
+    },
+    {
+      "symptom": "fever",
+      "impact": -6.713331764940378e-07,
+      "log_impact": -6.713460649490742e-07,
+      "influence": -1.051621988652762e-06
+    }
+  ],
+  "unreported_typical": [
+    {
+      "symptom": "ear pain",
+      "frequency": 0.5210466384887695
+    },
+    {
+      "symptom": "headache",
+      "frequency": 0.5164960026741028
+    },
+    {
+      "symptom": "chills",
+      "frequency": 0.5005688071250916
+    },
+    {
+      "symptom": "sore throat",
+      "frequency": 0.4960182011127472
+    },
+    {
+      "symptom": "difficulty in swallowing",
+      "frequency": 0.4687144458293915
+    }
+  ],
+  "rule_matches": [
+    {
+      "disease": "strep throat",
+      "score": 0.6671789884567261,
+      "matched": [
+        "cough",
+        "nasal congestion",
+        "vomiting",
+        "decreased appetite",
+        "fever",
+        "ache all over",
+        "skin rash"
+      ],
+      "missing": [
+        "ear pain",
+        "headache",
+        "chills",
+        "sore throat",
+        "difficulty in swallowing"
+      ],
+      "key_count": 12
+    },
+    {
+      "disease": "viral exanthem",
+      "score": 0.621109127998352,
+      "matched": [
+        "cough",
+        "nasal congestion",
+        "vomiting",
+        "decreased appetite",
+        "fever",
+        "skin rash"
+      ],
+      "missing": [
+        "skin swelling",
+        "abnormal appearing skin",
+        "pulling at ears",
+        "itching of skin"
+      ],
+      "key_count": 10
+    },
+    {
+      "disease": "herpangina",
+      "score": 0.5479910969734192,
+      "matched": [
+        "cough",
+        "vomiting",
+        "decreased appetite",
+        "fever",
+        "skin rash"
+      ],
+      "missing": [
+        "swollen lymph nodes",
+        "insomnia",
+        "mouth ulcer",
+        "sore throat"
+      ],
+      "key_count": 9
+    },
+    {
+      "disease": "diaper rash",
+      "score": 0.4963374137878418,
+      "matched": [
+        "cough",
+        "nasal congestion",
+        "vomiting",
+        "fever",
+        "skin rash"
+      ],
+      "missing": [
+        "temper problems",
+        "diarrhea",
+        "diaper rash",
+        "pulling at ears",
+        "blood in stool",
+        "irritable infant"
+      ],
+      "key_count": 11
+    },
+    {
+      "disease": "acute bronchiolitis",
+      "score": 0.47994813323020935,
+      "matched": [
+        "cough",
+        "nasal congestion",
+        "vomiting",
+        "decreased appetite",
+        "fever"
+      ],
+      "missing": [
+        "wheezing",
+        "hurts to breath",
+        "irritable infant",
+        "difficulty breathing",
+        "pulling at ears",
+        "shortness of breath",
+        "coryza"
+      ],
+      "key_count": 12
+    }
+  ],
+  "dnn_top": "strep throat",
+  "nb_top": "strep throat",
+  "recommendations": [
+    "No red-flag symptoms were reported. Consult a doctor if symptoms persist or worsen.",
+    "The models point clearly to strep throat, but this is a screening result, not a diagnosis. Confirm it with a qualified clinician.",
+    "Do not start, stop or change any medicine based on this result."
+  ],
+  "models_used": [
+    "Bernoulli Naive Bayes"
+  ],
+  "dnn_weight": 0.0,
+  "disclaimer": "HealthBandhu is an educational and research prototype. It does not provide a medical diagnosis and must not replace assessment by a qualified healthcare professional. Do not start, stop or change any treatment based on this result."
+}

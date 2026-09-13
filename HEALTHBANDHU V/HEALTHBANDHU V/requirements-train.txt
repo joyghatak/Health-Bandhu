@@ -1,0 +1,6 @@
+# HealthBandhu V: extra packages for retraining with notebooks/HealthBandhu_Training.ipynb
+-r requirements.txt
+scikit-learn>=1.4
+matplotlib>=3.8
+gdown>=5.0
+jupyter

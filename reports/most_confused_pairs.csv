@@ -1,0 +1,16 @@
+true,predicted,count
+noninfectious gastroenteritis,infectious gastroenteritis,49
+infectious gastroenteritis,noninfectious gastroenteritis,49
+cholecystitis,gallstone,42
+marijuana abuse,personality disorder,38
+gum disease,tooth disorder,37
+dry eye of unknown cause,corneal disorder,35
+spinal stenosis,degenerative disc disease,32
+cystitis,bladder disorder,32
+psychotic disorder,schizophrenia,31
+skin polyp,skin disorder,31
+spontaneous abortion,vaginal cyst,30
+temporary or benign blood in urine,bladder disorder,30
+pyelonephritis,kidney stone,29
+acute bronchitis,chronic obstructive pulmonary disease (copd),29
+depression,post-traumatic stress disorder (ptsd),28

@@ -1,0 +1,22 @@
+# HealthBandhu V: Streamlit configuration
+
+[theme]
+base = "light"
+primaryColor = "#2F3E8F"
+backgroundColor = "#FCFCFD"
+secondaryBackgroundColor = "#EEF0F7"
+textColor = "#1F2544"
+# Hind Siliguri (Indian Type Foundry) covers Latin and Bengali. Falls back to the
+# system sans-serif font when offline.
+font = "sans serif"
+baseRadius = "0.3rem"
+
+[server]
+headless = true
+maxUploadSize = 50
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
