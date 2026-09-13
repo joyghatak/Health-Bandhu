@@ -216,18 +216,28 @@ def load_bundle(models_dir: Optional[PathLike] = None) -> ModelBundle:
     dnn = None
     if has_dnn:
         os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
-        import tensorflow as tf  # imported lazily: slow and only needed for the DNN
-
-        dnn = tf.keras.models.load_model(folder / config.DNN_MODEL_FILE, compile=False)
         trained = metadata.get("versions", {})
-        for lib, installed in (("tensorflow", tf.__version__), ("keras", getattr(tf.keras, "__version__", None))):
-            if installed and trained.get(lib) and _major_minor(trained[lib]) != _major_minor(installed):
+        try:
+            import keras
+
+            dnn = keras.models.load_model(folder / config.DNN_MODEL_FILE, compile=False)
+            installed_keras = getattr(keras, "__version__", None)
+            if installed_keras and trained.get("keras") and _major_minor(trained["keras"]) != _major_minor(installed_keras):
                 warnings.append(
-                    f"The DNN was trained with {lib} {trained[lib]} but {installed} is installed. "
-                    "If predictions look wrong, install the trained version."
+                    f"The DNN was trained with keras {trained['keras']} but {installed_keras} is installed."
                 )
-    else:
-        warnings.append("Deep learning model not found: running with Naive Bayes only.")
+        except Exception:
+            try:
+                import tensorflow as tf
+
+                dnn = tf.keras.models.load_model(folder / config.DNN_MODEL_FILE, compile=False)
+                for lib, installed in (("tensorflow", tf.__version__), ("keras", getattr(tf.keras, "__version__", None))):
+                    if installed and trained.get(lib) and _major_minor(trained[lib]) != _major_minor(installed):
+                        warnings.append(
+                            f"The DNN was trained with {lib} {trained[lib]} but {installed} is installed."
+                        )
+            except Exception as err:
+                warnings.append(f"Deep learning model could not be loaded: {err}. Running with Naive Bayes only.")
 
     nb_flp = nb_clp = None
     nb_temperature = 1.0
@@ -287,13 +297,18 @@ class HealthBandhuPredictor:
         if dnn is None:
             return None
         try:
-            import tensorflow as tf
-
             last = dnn.layers[-1]
             activation = getattr(getattr(last, "activation", None), "__name__", "")
-            if not isinstance(last, tf.keras.layers.Dense) or activation != "softmax":
+            if activation != "softmax":
                 return None
-            features = tf.keras.Model(dnn.inputs[0], dnn.layers[-2].output)
+            try:
+                import keras
+
+                features = keras.Model(dnn.inputs[0], dnn.layers[-2].output)
+            except Exception:
+                import tensorflow as tf
+
+                features = tf.keras.Model(dnn.inputs[0], dnn.layers[-2].output)
             kernel, bias = last.get_weights()
             return features, kernel.astype(np.float64), bias.astype(np.float64)
         except Exception:
